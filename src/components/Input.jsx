@@ -15,5 +15,6 @@ function Input({ schema, context }) {
   )
 }
 
-register('input', Input)
+// 示例：注册组件（可选，如果使用全局注册表）
+// register('input', Input) // 已移动到 registry.tsx
 export default Input
