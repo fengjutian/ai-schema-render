@@ -3,6 +3,7 @@ import Input from '../components/Input';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import Form from '../components/Form';
+import Button from '../components/Button';
 
 const registry = new Map();
 
@@ -41,6 +42,10 @@ register('select', ({ schema, context }) => (
       <option key={i} value={opt.value}>{opt.label}</option>
     )) : []}
   </select>
+));
+
+register('button', ({ schema, context }) => (
+  <Button schema={schema} context={context} />
 ));
 
 
