@@ -10,8 +10,6 @@ return JSON.parse(data.output.replace(/```json|```/g, ""));
 }
 
 
-// --- Added: serverless endpoint /api/kimi (vite dev proxy or server) ---
-// Example Express-like handler (adjust per your setup)
 export async function onRequest({ request }) {
 const { userText, systemPrompt } = await request.json();
 const moonshotKey = process.env.MOONSHOT_API_KEY;
