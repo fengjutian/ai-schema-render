@@ -1,5 +1,8 @@
 import React from 'react';
-import Input from '../components/Input'; // 假设 Input.jsx 对应 input-text
+import Input from '../components/Input'; 
+import Pagination from '../components/Pagination';
+import Table from '../components/Table';
+import Form from '../components/Form';
 
 const registry = new Map();
 
@@ -7,9 +10,8 @@ export function register(type, component) {
   registry.set(type, component);
 }
 
-// 注册内置组件（假设这些是简单的占位实现；实际中请替换为自定义组件）
 register('form', ({ schema, context, children }) => (
-  <form className="space-y-4">{children}</form>
+  <Form schema={schema} context={context}>{children}</Form>
 ));
 
 register('divider', ({ schema }) => (
@@ -25,10 +27,10 @@ register('grid', ({ schema, context, children }) => (
 ));
 
 register('pagination', ({ schema, context }) => (
-  <div className="pagination">Pagination: {schema.props?.total || 0} items</div>
+  <Pagination schema={schema} context={context} />
 ));
 
-// 您可以在这里添加更多组件注册，例如从 components/ 导入
+
 register('input-text', ({ schema, context }) => (
   <Input schema={schema} context={context} />
 ));
@@ -41,10 +43,7 @@ register('select', ({ schema, context }) => (
   </select>
 ));
 
-// import Button from '../components/Button';
-// register('button', Button);
 
-import Table from '../components/Table';
 register('table', ({ schema, context }) => (
   <Table schema={schema} context={context} />
 ));
