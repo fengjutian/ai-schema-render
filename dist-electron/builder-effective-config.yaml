@@ -1,0 +1,16 @@
+directories:
+  output: dist-electron
+  buildResources: build
+appId: com.example.schema-renderer
+productName: Schema Renderer
+files:
+  - filter:
+      - dist/**/*
+      - main.js
+mac:
+  target: dmg
+win:
+  target: nsis
+linux:
+  target: AppImage
+electronVersion: 39.2.3
