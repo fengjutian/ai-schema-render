@@ -22,7 +22,7 @@ export async function onRequest({ request }) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      model: "moonshot-v1-32k",
+      model: "kimi-k2-thinking-turbo",
       temperature: 0,
       messages: [
         { role: "system", content: systemPrompt },
