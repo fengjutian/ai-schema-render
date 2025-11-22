@@ -1,5 +1,5 @@
 import React from 'react'
-import { getComponent } from './registry'
+import { getComponent } from '@/renderer/registry'
 
 export default function Renderer({ schema, context }) {
   if (!schema) return null
