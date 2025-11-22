@@ -18,11 +18,11 @@ export function NLToSchema() {
   const run = async () => {
     setLoading(true);
     try {
-      setVisible(true);
       const s = await generateSchemaFromNaturalText(text);
       setSchema(s);
       setEditedSchemaText(JSON.stringify(s, null, 2));
     } finally {
+      setVisible(true);
       setLoading(false);
     }
   };
@@ -62,7 +62,7 @@ export function NLToSchema() {
       </Button>
 
       <Drawer
-        width={682}
+        width={882}
         title={<span>Schema 查看</span>}
         visible={visible}
         onOk={() => {
@@ -72,25 +72,29 @@ export function NLToSchema() {
           setVisible(false);
         }}
       >
-        <div className="w-full h-48 rounded overflow-hidden">
-          <h3 className="text-lg font-bold">生成的 Schema 预览：</h3>
-          <MonacoEditor
-            language="json"
-            theme="vs-dark"
-            value={editedSchemaText}
-            onChange={(value) => setEditedSchemaText(value || "")}
-            options={{
-              minimap: { enabled: false },
-              scrollBeyondLastLine: false,
-              formatOnType: true,
-              formatOnPaste: true,
-              tabSize: 2,
-              fontSize: 14,
-              lineNumbers: 'on',
-              automaticLayout: true,
-              wordWrap: 'on',
-            }}
-          />
+        <div className="w-full  rounded flex flex-col">
+          <h3 className="text-lg font-bold mb-2">生成的 Schema 预览：</h3>
+          <div className="min-h-98 overflow-auto">
+            <MonacoEditor
+              className="w-full h-full min-h-98"
+              language="json"
+              theme="vs-dark"
+              value={editedSchemaText}
+              onChange={(value) => setEditedSchemaText(value || "")}
+              options={{
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false,
+                formatOnType: true,
+                formatOnPaste: true,
+                tabSize: 2,
+                fontSize: 14,
+                lineNumbers: 'on',
+                automaticLayout: true,
+                wordWrap: 'on',
+              }}
+              height="450px"
+            />
+          </div>
           <button
             onClick={applyChanges}
             className="px-4 py-2 bg-green-500 text-black rounded mt-2"

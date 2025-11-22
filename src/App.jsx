@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Renderer from './renderer/Renderer'
 import defaultSchema from './schemas/demo.json'
 import { createContextController } from './context/controller'
 import './components/Page'
