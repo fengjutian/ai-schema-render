@@ -3,6 +3,7 @@ import { useState } from "react";
 import Renderer from "../renderer/Renderer";
 import { createContextController } from "../context/controller";
 import MonacoEditor from 'react-monaco-editor';
+import { Drawer, Button } from '@arco-design/web-react';
 
 export function NLToSchema() {
   const [text, setText] = useState("");
@@ -10,11 +11,13 @@ export function NLToSchema() {
   const [loading, setLoading] = useState(false);
   const [editedSchemaText, setEditedSchemaText] = useState("");
   const [error, setError] = useState(null);
-  const context = createContextController({ data: {} }); // 创建 context（如果需要，添加初始数据）
+  const context = createContextController({ data: {} });
+  const [visible, setVisible] = useState(false);
 
   const run = async () => {
     setLoading(true);
     try {
+      setVisible(true);
       const s = await generateSchemaFromNaturalText(text);
       setSchema(s);
       setEditedSchemaText(JSON.stringify(s, null, 2));
@@ -50,31 +53,43 @@ export function NLToSchema() {
         {loading ? "生成中..." : "生成 Schema"}
       </button>
 
-      <h3 className="text-lg font-bold">生成的 Schema 预览：</h3>
+      <Button
+        onClick={() => setVisible(true)}
+        className="px-4 py-2 bg-yellow-500 text-black rounded margin-left-2"
+      >
+        查看 Schema
+      </Button>
 
-      {schema && (
-        <>
-
-          <div className="w-full h-48 rounded overflow-hidden">
-            <MonacoEditor
-             language="json"
-              theme="vs-dark"
-              value={editedSchemaText}
-              onChange={(value) => setEditedSchemaText(value || "")}
-              options={{
-                minimap: { enabled: false },
-                scrollBeyondLastLine: false,
-                formatOnType: true,
-                formatOnPaste: true,
-                tabSize: 2,
-                fontSize: 14,
-                lineNumbers: 'on',
-                automaticLayout: true,
-                wordWrap: 'on',
-              }}
-            />
-          </div>
-
+      <Drawer
+        width={332}
+        title={<span>Basic Information </span>}
+        visible={visible}
+        onOk={() => {
+          setVisible(false);
+        }}
+        onCancel={() => {
+          setVisible(false);
+        }}
+      >
+        <div className="w-full h-48 rounded overflow-hidden">
+          <h3 className="text-lg font-bold">生成的 Schema 预览：</h3>
+          <MonacoEditor
+            language="json"
+            theme="vs-dark"
+            value={editedSchemaText}
+            onChange={(value) => setEditedSchemaText(value || "")}
+            options={{
+              minimap: { enabled: false },
+              scrollBeyondLastLine: false,
+              formatOnType: true,
+              formatOnPaste: true,
+              tabSize: 2,
+              fontSize: 14,
+              lineNumbers: 'on',
+              automaticLayout: true,
+              wordWrap: 'on',
+            }}
+          />
           <button
             onClick={applyChanges}
             className="px-4 py-2 bg-green-500 text-black rounded mt-2"
@@ -83,7 +98,11 @@ export function NLToSchema() {
           </button>
 
           {error && <p className="text-red-500 mt-2">{error}</p>}
+        </div>
+      </Drawer>
 
+      {schema && (
+        <>
           <div className="border border-gray-700 p-4 rounded mt-4">
             <Renderer schema={schema} context={context} />
           </div>
