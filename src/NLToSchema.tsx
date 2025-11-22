@@ -20,9 +20,7 @@ export function NLToSchema() {
   };
 
   return (
-    <div className="space-y-4 p-6 bg-gray-900 text-gray-100 rounded-lg">
-      <h2 className="text-xl font-bold">自然语言 → Schema</h2>
-
+    <div className="space-y-4 bg-gray-900 text-gray-100 rounded-lg">
       <textarea
         className="w-full h-32 p-3 rounded bg-gray-800"
         placeholder="例如：一个带搜索的商品列表，包含图片、标题、价格"

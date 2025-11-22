@@ -21,12 +21,11 @@ export default function App() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-semibold">Schema → React Renderer</h1>
-            <p className="text-sm text-gray-400">Demo: edit schema in /src/schemas/demo.json</p>
+            <h1 className="text-2xl font-semibold">AI Schema 生成器</h1>
           </div>
         </header>
 
-        <div className="p-6">
+        <div className="p-1">
           <NLToSchema />
         </div>
 
