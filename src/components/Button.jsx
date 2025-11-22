@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Button as ArcoButton } from '@arco-design/web-react';
 
-function Button({ schema, context }) {
+const Button = ({ schema, context }) => {
   const onClick = () => {
-        if (!context) return; // 防止 context 未定义
+    if (!context) return; // 防止 context 未定义
 
     switch (schema.action) {
       case 'search':
@@ -19,10 +19,10 @@ function Button({ schema, context }) {
       default:
         console.log(`Unhandled action: ${schema.action}`);
         break;
-     }
-   }
+    }
+  };
 
-     const { type = 'primary', disabled = false, ...buttonProps } = schema.props || {};
+  const { type = 'primary', disabled = false, ...buttonProps } = schema.props || {};
 
   return (
     <ArcoButton
@@ -35,9 +35,6 @@ function Button({ schema, context }) {
       {schema.text || 'Button'}
     </ArcoButton>
   );
- 
+};
 
-  }
-
-// register('button', Button)
-export default Button
+export default Button;
