@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "dev:electron": "concurrently \"cross-env BROWSER=none pnpm dev\" \"wait-on http://localhost:5173 && electronmon .\"",
+    "build:electron": "vite build && electron-builder",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -19,11 +21,34 @@
     "@eslint/js": "^9.39.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.14",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.3",
+    "electron-builder": "^26.0.12",
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.4.18",
-    "vite": "^5.3.6"
+    "vite": "^5.3.6",
+    "wait-on": "^9.0.3"
+  },
+  "main": "main.js",
+    "build": {
+    "appId": "com.example.schema-renderer",
+    "productName": "Schema Renderer",
+    "files": ["dist/**/*", "main.js"],
+    "directories": {
+      "output": "dist-electron"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
