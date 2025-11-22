@@ -1,7 +1,7 @@
-import { generateSchemaFromNaturalText } from "./api/kimi";
+import { generateSchemaFromNaturalText } from "../api/kimi";
 import { useState } from "react";
-import Renderer from "./renderer/Renderer";
-import { createContextController } from "./context/controller";
+import Renderer from "../renderer/Renderer";
+import { createContextController } from "../context/controller";
 import MonacoEditor from 'react-monaco-editor';
 
 export function NLToSchema() {
@@ -54,11 +54,6 @@ export function NLToSchema() {
 
       {schema && (
         <>
-          {/* <textarea
-            className="w-full h-48 p-3 rounded bg-gray-800 text-gray-100 font-mono text-sm"
-            value={editedSchemaText}
-            onChange={(e) => setEditedSchemaText(e.target.value)}
-          /> */}
 
           <div className="w-full h-48 rounded overflow-hidden">
             <MonacoEditor
@@ -72,6 +67,10 @@ export function NLToSchema() {
                 formatOnType: true,
                 formatOnPaste: true,
                 tabSize: 2,
+                fontSize: 14,
+                lineNumbers: 'on',
+                automaticLayout: true,
+                wordWrap: 'on',
               }}
             />
           </div>

@@ -7,7 +7,7 @@ import './components/Card'
 import './components/Table'
 import './components/Input'
 import './components/Button'
-import { NLToSchema } from './NLToSchema'
+import { NLToSchema } from './renderer/NLToSchema'
 
 
 export default function App() {
