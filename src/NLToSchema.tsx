@@ -49,7 +49,6 @@ export function NLToSchema() {
         {loading ? "生成中..." : "生成 Schema"}
       </button>
 
-      {/* 添加生成的 Schema 预览 */}
       <h3 className="text-lg font-bold">生成的 Schema 预览：</h3>
 
       {schema && (

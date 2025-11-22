@@ -44,6 +44,11 @@ register('select', ({ schema, context }) => (
 // import Button from '../components/Button';
 // register('button', Button);
 
+import Table from '../components/Table';
+register('table', ({ schema, context }) => (
+  <Table schema={schema} context={context} />
+));
+
 export function getComponent(type) {
   return registry.get(type) || (() => <div>Unknown: {type}</div>);
 }
