@@ -4,6 +4,7 @@ import Renderer from "../renderer/Renderer";
 import { createContextController } from "../context/controller";
 import MonacoEditor from 'react-monaco-editor';
 import { Drawer, Button } from '@arco-design/web-react';
+import '@arco-design/web-react/dist/css/arco.css'
 
 export function NLToSchema() {
   const [text, setText] = useState("");
@@ -61,8 +62,8 @@ export function NLToSchema() {
       </Button>
 
       <Drawer
-        width={332}
-        title={<span>Basic Information </span>}
+        width={682}
+        title={<span>Schema 查看</span>}
         visible={visible}
         onOk={() => {
           setVisible(false);
