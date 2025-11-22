@@ -35,9 +35,9 @@ register('input-text', ({ schema, context }) => (
 
 register('select', ({ schema, context }) => (
   <select className="border p-2 rounded" {...schema.props}>
-    {schema.options?.map((opt, i) => (
+    {Array.isArray(schema.options) ? schema.options.map((opt, i) => (
       <option key={i} value={opt.value}>{opt.label}</option>
-    ))}
+    )) : []}
   </select>
 ));
 

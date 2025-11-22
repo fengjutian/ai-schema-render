@@ -2,6 +2,7 @@ import { generateSchemaFromNaturalText } from "./api/kimi";
 import { useState } from "react";
 import Renderer from "./renderer/Renderer";
 import { createContextController } from "./context/controller";
+import MonacoEditor from 'react-monaco-editor';
 
 export function NLToSchema() {
   const [text, setText] = useState("");
@@ -53,11 +54,27 @@ export function NLToSchema() {
 
       {schema && (
         <>
-          <textarea
+          {/* <textarea
             className="w-full h-48 p-3 rounded bg-gray-800 text-gray-100 font-mono text-sm"
             value={editedSchemaText}
             onChange={(e) => setEditedSchemaText(e.target.value)}
-          />
+          /> */}
+
+          <div className="w-full h-48 rounded overflow-hidden">
+            <MonacoEditor
+             language="json"
+              theme="vs-dark"
+              value={editedSchemaText}
+              onChange={(value) => setEditedSchemaText(value || "")}
+              options={{
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false,
+                formatOnType: true,
+                formatOnPaste: true,
+                tabSize: 2,
+              }}
+            />
+          </div>
 
           <button
             onClick={applyChanges}
