@@ -30,7 +30,7 @@ register('pagination', ({ schema, context }) => (
 
 // 您可以在这里添加更多组件注册，例如从 components/ 导入
 register('input-text', ({ schema, context }) => (
-  <Input {...schema.props} />
+  <Input schema={schema} context={context} />
 ));
 
 register('select', ({ schema, context }) => (

@@ -30,9 +30,9 @@ export default function App() {
           <NLToSchema />
         </div>
 
-        <main className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        {/* <main className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <Renderer schema={schema} context={context} />
-        </main>
+        </main> */}
 
       </div>
     </div>
