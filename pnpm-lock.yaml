@@ -45,12 +45,18 @@ importers:
       electron-builder:
         specifier: ^26.0.12
         version: 26.0.12(electron-builder-squirrel-windows@26.0.12)
+<<<<<<< HEAD
       electron-is-dev:
         specifier: ^3.0.0
         version: 3.0.1
       electronmon:
         specifier: ^1.1.0
         version: 1.1.2
+=======
+      electronmon:
+        specifier: ^2.0.3
+        version: 2.0.4
+>>>>>>> 7c7857b92bc9b45335995033590288a643dbdc5b
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@1.21.7)
@@ -1204,9 +1210,15 @@ packages:
     engines: {node: '>= 12.20.55'}
     hasBin: true
 
+<<<<<<< HEAD
   electronmon@1.1.2:
     resolution: {integrity: sha512-0VSG5sRxNLDmGYVq08BbTfXtZ7cJ6yNByuDTrHjY+S6Ms+LVGuUROtHOhm1mSFhm33es5MNwgHb9ik8M4gW4Iw==}
     engines: {node: '>=8.0.0'}
+=======
+  electronmon@2.0.4:
+    resolution: {integrity: sha512-u6eDrvUbqa+wsnMrhG2vHmo5neL1owLg2e5i1avGWcOb4rHsUf9lSfbs0FvfPsBNpLxxlPO98nrMhAGV+zw/fQ==}
+    engines: {node: '>=10.0.0'}
+>>>>>>> 7c7857b92bc9b45335995033590288a643dbdc5b
     hasBin: true
 
   emoji-regex@8.0.0:
@@ -4224,7 +4236,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   electronmon@1.1.2:
+=======
+  electronmon@2.0.4:
+>>>>>>> 7c7857b92bc9b45335995033590288a643dbdc5b
     dependencies:
       chalk: 3.0.0
       import-from: 3.0.0
